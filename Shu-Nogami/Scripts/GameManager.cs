@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public PlayerUI playerUI;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void Defeat(){
+        playerUI.SetText("Defeat");
+        Invoke("GameEnd", 5f);
+    }
+    public void Victory(){
+        playerUI.SetText("Victory");
+        Invoke("GameEnd", 5f);
+    }
+    void GameEnd(){
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 }
